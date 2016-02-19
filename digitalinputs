@@ -1,0 +1,24 @@
+int ledPin = 3;
+int brightness = 0;
+int button1 = 5;
+int button2 = 6;
+
+void setup(){
+pinMode(ledPin, OUTPUT);
+pinMode(button1, INPUT_PULLUP);
+pinMode(button2, INPUT_PULLUP);
+}
+
+void loop(){
+  analogWrite(ledPin, brightness);
+  
+  if((digitalRead(button1) == LOW) && brightness < 255){
+  brightness +=1;
+  }
+  
+  if(digitalRead(button2) == LOW && brightness > 0){
+  brightness -= 1;
+  }
+  
+  delay(10);
+  }
